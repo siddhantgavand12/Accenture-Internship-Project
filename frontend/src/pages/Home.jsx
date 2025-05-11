@@ -21,7 +21,7 @@ const Home = () => {
 
 
     return (
-        <div className="p-4">
+        <div className="p-4 max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold mb-4 text-center">Electronics Products</h2>
           {products.length === 0 ? (
             <p className="text-center">No products available. Please add some.</p>

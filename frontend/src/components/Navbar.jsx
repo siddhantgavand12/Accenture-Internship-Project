@@ -1,16 +1,37 @@
 import React from "react";
 import { Link } from "react-router";
-
+import { useAuth } from "../context/AuthContext"; // Import auth context
 const Navbar = () => {
+  const { isAdmin,setIsAdmin } = useAuth(); // Get isAdmin status from context
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between">
-      <h1 className="font-bold text-xl">Electronics Store</h1>
+      <h1 className="font-bold text-xl">Gada Electronics Store</h1>
       <div className="space-x-4">
-        <Link to="/" className = "px-3 hover:text-gray-400">Home</Link>
-        <Link to="/admin" className = "px-3 hover:text-gray-400">Admin</Link>
-        <Link to="/admin/add-product" className = "px-3 hover:text-gray-400">Add Product</Link>
+        <Link to="/" className="px-3 hover:text-gray-400">
+          Home
+        </Link>
+        {!isAdmin && (
+          <Link to="/admin" className="px-3 hover:text-gray-400">
+            Admin Login
+          </Link>
+        )}
+
+        {isAdmin && (
+          <Link to="/admin/add-product" className="px-3 hover:text-gray-400">
+            Add Product
+          </Link>
+        ) }
+        {isAdmin && (
+          <Link to="/admin" className="px-3 hover:text-gray-400" onClick={() => {
+            setIsAdmin(false);
+          }}>
+            Log out
+          </Link>
+
+          // isAdmin = !isAdmin
+        ) }
       </div>
-    </nav>    
+    </nav>
   );
 };
 

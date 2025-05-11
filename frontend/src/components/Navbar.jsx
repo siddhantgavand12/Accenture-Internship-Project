@@ -5,7 +5,7 @@ const Navbar = () => {
   const { isAdmin,setIsAdmin } = useAuth(); // Get isAdmin status from context
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between">
-      <h1 className="font-bold text-xl">Gada Electronics Store</h1>
+      <h1 className="font-bold text-xl">Electronics Store</h1>
       <div className="space-x-4">
         <Link to="/" className="px-3 hover:text-gray-400">
           Home

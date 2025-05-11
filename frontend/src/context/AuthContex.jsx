@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     };
 
 
-    
+
     const logout = () => {
         setIsAdmin(false);
     };
@@ -25,3 +25,8 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 }    
+
+export const useAuth = () => {
+    return useContext(AuthContext);
+}
+

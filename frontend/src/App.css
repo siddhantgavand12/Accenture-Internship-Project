@@ -1,1 +1,7 @@
-/* write your css here */
+/* Carousel Dots */
+.carousel .control-dots {
+  @apply flex justify-center place-items-end;
+}
+.carousel .control-dots .dot {
+  @apply w-2 h-2 bg-gray-500 mx-1 opacity-70 transition-opacity duration-300;
+}

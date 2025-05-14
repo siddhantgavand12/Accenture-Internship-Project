@@ -6,7 +6,7 @@ import AdminLogin from "./pages/AdminLogin";
 import Navbar from "./components/Navbar";
 import AddProduct from "./pages/AddProduct";
 import { AddProductProvider } from "./context/AddProductContext"; // Import AddProduct context
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {

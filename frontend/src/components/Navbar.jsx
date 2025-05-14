@@ -1,8 +1,5 @@
-import React from "react";
-import { useState } from "react";
 import { Link } from "react-router";
 import { useAuth } from "../context/AuthContext"; // Import auth context
-import AddProduct from "../pages/AddProduct";
 import { useAddProduct } from "../context/AddProductContext"; // Import AddProduct context
 
 const Navbar = () => {

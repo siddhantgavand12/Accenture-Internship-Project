@@ -70,61 +70,65 @@ const AddProduct = ({ onClose }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
-      <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">Add Product</h1>
-      <form onSubmit={handleSubmit} className="space-y-4 text-black p-1">
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={handleImageChange}
-          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        {preview.length > 0 && (
-          <div className="grid grid-cols-2 gap-2">
-            {preview.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`Preview ${index}`}
-                className="w-full h-40 object-contain border rounded shadow"
-              />
-            ))}
-          </div>
-        )}
-        <input
-          type="text"
-          name="name"
-          placeholder="Product Name"
-          onChange={handleChange}
-          required
-          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <input
-          type="number"
-          name="quantity"
-          placeholder="Product Quantity"
-          onChange={handleChange}
-          required
-          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <input
-          type="number"
-          name="price"
-          placeholder="Product Price"
-          onChange={handleChange}
-          required
-          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition duration-200"
-        >
-          Add Product
-        </button>
-      </form>
-    </div>
-  );
+  <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+    <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">Add Product</h1>
+    <form onSubmit={handleSubmit} className="space-y-4 text-black p-1">
+      <input
+        type="file"
+        accept="image/*"
+        multiple
+        onChange={handleImageChange}
+        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+
+      {preview.length > 0 && (
+        <div className="max-h-40 overflow-y-auto grid grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
+          {preview.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`Preview ${index}`}
+              className="w-full h-32 object-contain border rounded shadow"
+            />
+          ))}
+        </div>
+      )}
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Product Name"
+        onChange={handleChange}
+        required
+        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <input
+        type="number"
+        name="quantity"
+        placeholder="Product Quantity"
+        onChange={handleChange}
+        required
+        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <input
+        type="number"
+        name="price"
+        placeholder="Product Price"
+        onChange={handleChange}
+        required
+        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+
+      <button
+        type="submit"
+        className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition duration-200"
+      >
+        Add Product
+      </button>
+    </form>
+  </div>
+);
+
 };
 
 export default AddProduct;

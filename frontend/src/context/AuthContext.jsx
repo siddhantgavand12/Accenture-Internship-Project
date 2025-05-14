@@ -6,7 +6,7 @@ export function AuthProvider({ children }) {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const login = (email, password) => {
-    if (email === "admin@example.com" && password === "admin123") {
+    if (email === "admin@example.com" && password === "a") {
       setIsAdmin(true);
       return true;
     }

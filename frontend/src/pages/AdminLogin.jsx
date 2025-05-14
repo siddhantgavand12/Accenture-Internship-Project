@@ -10,7 +10,7 @@ const AdminLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (login(email, password)) navigate("/admin/add-product");
+    if (login(email, password)) navigate("/");
     else alert("Invalid credentials");
   };
 

@@ -22,7 +22,7 @@ const Navbar = () => {
           </Link>
         ) }
         {isAdmin && (
-          <Link to="/admin" className="px-3 hover:text-gray-400" onClick={() => {
+          <Link to="/" className="px-3 hover:text-gray-400" onClick={() => {
             setIsAdmin(false);
           }}>
             Log out

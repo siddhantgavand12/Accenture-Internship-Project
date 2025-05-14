@@ -1,7 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router";
 import { useAuth } from "../context/AuthContext"; // Import auth context
+import AddProduct from "../pages/AddProduct";
+import { useAddProduct } from "../context/AddProductContext"; // Import AddProduct context
+
 const Navbar = () => {
+   const { setShowAddProduct } = useAddProduct();
   const { isAdmin,setIsAdmin } = useAuth(); // Get isAdmin status from context
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between">
@@ -10,6 +15,7 @@ const Navbar = () => {
         <Link to="/" className="px-3 hover:text-gray-400">
           Home
         </Link>
+
         {!isAdmin && (
           <Link to="/admin" className="px-3 hover:text-gray-400">
             Admin Login
@@ -17,10 +23,13 @@ const Navbar = () => {
         )}
 
         {isAdmin && (
-          <Link to="/admin/add-product" className="px-3 hover:text-gray-400">
+          <Link to="/" className="px-3 hover:text-gray-400" onClick={() => setShowAddProduct(true)}>
             Add Product
           </Link>
-        ) }
+        )}
+
+         
+
         {isAdmin && (
           <Link to="/" className="px-3 hover:text-gray-400" onClick={() => {
             setIsAdmin(false);

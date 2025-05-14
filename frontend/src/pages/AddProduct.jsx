@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
-const AddProduct = () => {
+const AddProduct = ({onClose}) => {
   const { isAdmin } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -14,10 +16,11 @@ const AddProduct = () => {
 
   const [preview, setPreview] = useState(null);
 
+  useEffect(() => {
   if (!isAdmin) {
     navigate("/admin");
-    return null;
   }
+}, [isAdmin]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +37,7 @@ const AddProduct = () => {
       };
       reader.readAsDataURL(file);
     } else {
-      alert("Only JPG and PNG images are allowed.");
+      toast.error("Only JPG and PNG images are allowed.");
       e.target.value = null;
     }
   };
@@ -45,15 +48,16 @@ const AddProduct = () => {
     const newProduct = { ...formData, id: Date.now() };
     products.push(newProduct);
     localStorage.setItem("products", JSON.stringify(products));
-    alert("Product added!");
-    navigate("/");
+    toast.success("Product added successfully!");
+    onClose();
+    // navigate("/");
   };
 
   return (
-    <div className="add-product min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200 p-4">
+    // <div className="add-product min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200 p-4">
   <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
     <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">Add Product</h1>
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 text-black p-1">
       <input
         type="file"
         accept="image/*"
@@ -99,7 +103,7 @@ const AddProduct = () => {
       </button>
     </form>
   </div>
-</div>
+// </div>
 
 
   );
